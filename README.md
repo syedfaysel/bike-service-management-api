@@ -2,6 +2,9 @@
 
 This project is a backend API for managing bike servicing operations. It is built with Node.js, Express, TypeScript, and Prisma ORM. Details of the project are given below:
 
+## Live backend
+- (https://bike-service-management-api.vercel.app)  
+
 ## Tech Stack
 
 - Node.js

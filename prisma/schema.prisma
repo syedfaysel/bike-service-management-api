@@ -1,0 +1,47 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum ServiceStatus {
+  PENDING @map("pending")
+  IN_PROGRESS @map("in-progress")
+  DONE @map("done")
+}
+
+model Customer {
+  customerId String          @id @default(uuid())
+  name       String
+  email      String          @unique
+  phone      String
+  createdAt  DateTime        @default(now())
+  bikes      Bike[]
+}
+
+model Bike {
+  bikeId     String          @id @default(uuid())
+  brand      String
+  model      String
+  year       Int
+  customer   Customer        @relation(fields: [customerId], references: [customerId])
+  customerId String
+  services   ServiceRecord[]
+}
+
+model ServiceRecord {
+  serviceId      String        @id @default(uuid())
+  bike           Bike          @relation(fields: [bikeId], references: [bikeId])
+  bikeId         String
+  serviceDate    DateTime
+  completionDate DateTime?
+  description    String
+  status         ServiceStatus @default(PENDING)
+}

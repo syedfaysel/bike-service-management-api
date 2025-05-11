@@ -1,7 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import { ServiceService } from "./service.service";
 import { AppError } from "../../utils/errorHandler";
-import { ServiceStatus } from "../../generated/prisma";
 import { toServiceStatus, transformServiceResponse } from "./service.utils";
 
 const serviceRecordService = new ServiceService();

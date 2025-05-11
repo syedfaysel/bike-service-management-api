@@ -1,4 +1,4 @@
-import { Bike } from '../../generated/prisma';
+import { Bike } from '../../../generated/prisma';
 import prisma from '../../utils/prisma';
 import { AppError } from '../../utils/errorHandler';
 import { handlePrismaError } from '../../utils/prismaErrorHandler';

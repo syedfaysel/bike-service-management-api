@@ -1,4 +1,4 @@
-import { ServiceStatus, ServiceRecord } from '../../generated/prisma';
+import { ServiceStatus, ServiceRecord } from '../../../generated/prisma';
 
 // Convert string status to enum
 export const toServiceStatus = (status: string): ServiceStatus => {

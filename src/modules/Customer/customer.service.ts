@@ -1,4 +1,4 @@
-import { Customer } from '../../generated/prisma';
+import { Customer } from '../../../generated/prisma';
 import prisma from '../../utils/prisma';
 import { AppError } from '../../utils/errorHandler';
 import { handlePrismaError } from '../../utils/prismaErrorHandler';
